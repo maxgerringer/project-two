@@ -6,6 +6,7 @@ A simple starter project with Express, Handlebars, Sequelize, Passport and Local
 
 ## Live link:
 
+https://project2-team4-unc.herokuapp.com/
 
 ## Requirements:
 
