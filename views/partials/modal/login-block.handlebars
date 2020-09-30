@@ -1,29 +1,64 @@
-<div class="modal" id="user-info" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Credentials</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+<div class="modal" id="user-info" tabindex="-1">
+<div class="content">
+    <!-- Nav pills -->
+    <ul class="nav nav-pills" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="pill" href="#login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="pill" href="#regis">Register</a>
+      </li>
+    </ul>
 
-      <div class="modal-body">
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div id="login" class="tab-pane active">
         <form>
           <div class="form-group">
-            <label for="inputAccount">Email</label>
-            <input type="text" class="form-control" id="email">
+            <label for="exampleFormControlInput1">Email address</label>
+            <input type="email" class="form-control is-valid" id="exampleFormControlInput1" placeholder="name@example.com">
+            <small id="formHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <div class="form-group">
-            <label for="inputAccount">Password</label>
-            <input type="password" class="form-control" id="user_password">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control is-invalid" id="exampleInputPassword1" placeholder="Password">
+            <small id="formHelp" class="form-text text-muted">Password incorrect.</small>
           </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
-
-      <div class="modal-footer">
-        <button id="login" type="button" class="btn btn-primary">Login</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div id="regis" class="tab-pane fade">
+        <form>
+          <div class="form-group">
+            <label for="InputName">Full Name</label>
+            <input type="text" class="form-control is-valid" id="InputName" placeholder="Full Name">
+            <small id="formHelp" class="form-text text-muted">Please include your first name and last name.</small>
+          </div>
+          <div class="form-group">
+            <label for="InputRole">Role</label>
+            <select name="role" id="role" class="form-control is-valid" id="InputRole" placeholder="Role">
+              <option value="null">Select</option>
+              <option value="parent">Parent</option>
+              <option value="student">Student</option>
+              <option value="teacher">Teacher</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlInput2">Email address</label>
+            <input type="email" class="form-control is-valid" id="exampleFormControlInput2" placeholder="name@example.com">
+            <small id="formHelp" class="form-text text-muted">You will use this email address as your login.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword2">Password</label>
+            <input type="password" class="form-control is-invalid" id="exampleInputPassword2" placeholder="Password">
+            <small id="emailHelp" class="form-text text-muted">Password incorrect.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPasswordVer">Verify Password</label>
+            <input type="password" class="form-control is-invalid" id="exampleInputPasswordVer" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
