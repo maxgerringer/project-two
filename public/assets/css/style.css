@@ -1,11 +1,22 @@
 body {
   color: white;
   background-size: cover;
-  height:100%
+  height:100%; 
+  background-image: url("/assets/css/images/villageSTEPs.png") !important;
+  background-repeat: no-repeat;
+  background-color: #3E6977;
 }
 
 .jumbotron {
-  background: rgba(0, 0, 0, 0);
+  background: rgba(0,0,0,0);
+}
+
+.nav {
+  font-family: 'Oswald', sans-serif;
+}
+
+.navbar-brand {
+  font-family: 'Oswald', sans-serif;
 }
 
 .modal {
@@ -72,14 +83,7 @@ hr {
 .card-body {
   color: #444;
 }
-
-
-/* --------- */
-
-body{
-  background: #16a085;
-  background-image: url("images/village.jpg");
- }
+/*----------------------*/
  
 .content{
   width: 450px;
@@ -87,6 +91,7 @@ body{
   margin: 0 auto;
   padding: 30px;
 }
+
 .nav-pills{
   width: 450px;
 }
