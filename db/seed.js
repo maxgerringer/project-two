@@ -4,14 +4,16 @@ module.exports = (db) => {
     lastName: 'Gates',
     email: 'adam@gates.com',
     password: process.env.ADMIN_USER_PWD,
-    isAdmin: true
+    isAdmin: true,
+    role: 'teacher'
   }).then(() => {
     db.User.create({
       firstName: 'Uma',
       lastName: 'Pearson',
       email: 'uma@pearson.com',
       password: process.env.USER_PWD,
-      isAdmin: false
+      isAdmin: false,
+      role: 'student'
     }).then(() => {
       db.Example.create({
         text: 'Sample item',

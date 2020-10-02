@@ -8,6 +8,7 @@ module.exports = function (db) {
     },
     // Create a new example
     createExample: function (req, res) {
+      console.log(req.body);
       db.Example.create(req.body).then(function (dbExample) {
         res.json(dbExample);
       });

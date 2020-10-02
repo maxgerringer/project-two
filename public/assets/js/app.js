@@ -5,7 +5,7 @@ $('#add-user').on('click', function (event) {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
-    role: $('#inputRole').val().trim(),
+    role: $('#inputRole').val(),
     password: $('#inputPassword').val().trim()
   };
 

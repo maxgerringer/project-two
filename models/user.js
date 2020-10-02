@@ -37,6 +37,9 @@ module.exports = function (sequelize, DataTypes) {
     timestamps: true,
     hooks: {
       beforeValidate: function (user) {
+        if (user.role === 'teacher') {
+          user.isAdmin = true;
+        }
         if (user.changed('password')) {
           return bcrypt.hash(user.password, 10).then((password) => {
             user.password = password;

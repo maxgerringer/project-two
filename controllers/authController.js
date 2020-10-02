@@ -10,7 +10,8 @@ module.exports = (passport, db) => {
           email: req.body.email,
           password: req.body.password,
           firstName: req.body.firstName,
-          lastName: req.body.lastName
+          lastName: req.body.lastName,
+          role: req.body.role
         };
 
         return db.User.create(newUser).then(() => {
