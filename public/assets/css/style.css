@@ -19,8 +19,17 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
+/*---Modal---*/
 .modal {
   color: black;
+}
+
+label {
+  font-family: 'Oswald', sans-serif;
+}
+
+.form-control {
+  font-family: 'Oswald', sans-serif;
 }
 
 .btn {
@@ -102,7 +111,7 @@ hr {
   font-weight: bold;
   padding-top: 13px;
   text-align: center;
-  background: #343436;
+  background: #99999f;
   color: #fff;
   border-radius: 30px;
   height: 100px;
