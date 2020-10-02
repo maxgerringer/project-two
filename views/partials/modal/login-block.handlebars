@@ -3,7 +3,7 @@
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="pill" href="#login">Login</a>
+        <a class="nav-link active" data-toggle="pill" href="#loginDiv">Login</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="pill" href="#regis">Register</a>
@@ -12,31 +12,36 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div id="login" class="tab-pane active">
+      
+      <div id="loginDiv" class="tab-pane active">
         <form>
           <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control is-valid" id="exampleFormControlInput1" placeholder="name@example.com">
-            <small id="formHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <label for="inputAccount">Email address</label>
+            <input type="email" class="form-control is-valid" id="email" placeholder="name@example.com">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control is-invalid" id="exampleInputPassword1" placeholder="Password">
-            <small id="formHelp" class="form-text text-muted">Password incorrect.</small>
+            <label for="inputAccount">Password</label>
+            <input type="password" class="form-control is-invalid" id="user_password" placeholder="Password">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button id="login" type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
+
       <div id="regis" class="tab-pane fade">
         <form>
           <div class="form-group">
-            <label for="InputName">Full Name</label>
-            <input type="text" class="form-control is-valid" id="InputName" placeholder="Full Name">
-            <small id="formHelp" class="form-text text-muted">Please include your first name and last name.</small>
+            <label for="inputFirst">First Name</label>
+            <input type="text" class="form-control is-valid" id="inputFirst" placeholder="First Name">
+            <small id="formHelp" class="form-text text-muted">Please use your legal first name.</small>
+          </div>
+           <div class="form-group">
+            <label for="inputLast">Last Name</label>
+            <input type="text" class="form-control is-valid" id="inputLast" placeholder="Last Name">
+            <small id="formHelp" class="form-text text-muted">Please use your legal last name.</small>
           </div>
           <div class="form-group">
-            <label for="InputRole">Role</label>
-            <select name="role" id="role" class="form-control is-valid" id="InputRole" placeholder="Role">
+            <label for="inputRole">Role</label>
+            <select name="role" id="role" class="form-control is-valid" id="inputRole" placeholder="Role">
               <option value="null">Select</option>
               <option value="parent">Parent</option>
               <option value="student">Student</option>
@@ -44,20 +49,20 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput2">Email address</label>
-            <input type="email" class="form-control is-valid" id="exampleFormControlInput2" placeholder="name@example.com">
-            <small id="formHelp" class="form-text text-muted">You will use this email address as your login.</small>
+            <label for="inputEmail">Email address</label>
+            <input type="email" class="form-control is-valid" id="inputEmail" placeholder="name@example.com">
+            <small id="formHelp" class="form-text text-muted">You will use this email address as your login username.</small>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword2">Password</label>
-            <input type="password" class="form-control is-invalid" id="exampleInputPassword2" placeholder="Password">
-            <small id="emailHelp" class="form-text text-muted">Password incorrect.</small>
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control is-invalid" id="inputPassword" placeholder="Password">
+            {{!-- <small id="emailHelp" class="form-text text-muted">Password incorrect.</small> --}}
           </div>
-          <div class="form-group">
+          {{!-- <div class="form-group">
             <label for="exampleInputPasswordVer">Verify Password</label>
             <input type="password" class="form-control is-invalid" id="exampleInputPasswordVer" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          </div> --}}
+          <button type="submit" class="btn btn-primary" id="add-user">Submit</button>
         </form>
       </div>
     </div>
