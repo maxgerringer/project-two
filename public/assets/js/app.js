@@ -5,6 +5,7 @@ $('#add-user').on('click', function (event) {
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),
+    role: $('#inputRole').val().trim(),
     password: $('#inputPassword').val().trim()
   };
 
@@ -119,7 +120,7 @@ $('#login').on('click', function (event) {
   };
 
   $.post('/api/login', user, (result) => {
-    // console.log(result);
+    console.log(result);
     if (result.loggedIn) {
       $(document.location).attr('href', '/dashboard');
     } else {
