@@ -75,6 +75,8 @@ label {
 .lead {
   font-size: 1.8rem;
   font-weight: 500;
+  font-family: 'Eczar', serif;
+  margin-bottom: 0;
 }
 
 .userId h2, .header-wrap h1 {
@@ -98,14 +100,16 @@ hr {
   width: 450px;
   height: auto;
   margin: 0 auto;
-  padding: 30px;
+  padding: 10px;
 }
 
 .nav-pills{
-  width: 450px;
+  width: 100%;
+  align-items: center;
 }
+
 .nav-item{
-  width: 50%;
+  width: 25%;
 }
 .nav-pills .nav-link{
   font-weight: bold;
@@ -138,4 +142,8 @@ hr {
   width: 100px;
   margin: 0 auto;
   float: right;
+}
+
+.tabDiv {
+  width: 100%;
 }
