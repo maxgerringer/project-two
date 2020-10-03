@@ -6,7 +6,7 @@ module.exports = (db) => {
     if (req.isAuthenticated()) {
       res.redirect('/profile');
     } else {
-      res.render('register');
+      res.render('/');
     }
   });
 
@@ -30,27 +30,40 @@ module.exports = (db) => {
     }
   });
 
-  // Load dashboard page
+  // Load teacher dashboard page
   router.get('/', (req, res) => {
-    if (req.isAuthenticated()) {
+    if (req.isAuthenticated() && req.session.passport.user.role === 'teacher') {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('dashboard', user);
+      res.render('teacher-dashboard', user);
     } else {
       res.render('dashboard');
     }
   });
 
-  // Load dashboard page
+  // Load student dashboard page
   router.get('/dashboard', (req, res) => {
-    if (req.isAuthenticated()) {
+    if (req.isAuthenticated() && req.session.passport.user.role === 'student') {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('dashboard', user);
+      res.render('student-dashboard', user);
+    } else {
+      res.render('dashboard');
+    }
+  });
+
+  // Load student dashboard page
+  router.get('/dashboard', (req, res) => {
+    if (req.isAuthenticated() && req.session.passport.user.role === 'parent') {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('parent-dashboard', user);
     } else {
       res.render('dashboard');
     }
