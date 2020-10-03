@@ -11,7 +11,8 @@ module.exports = (passport, db) => {
           password: req.body.password,
           firstName: req.body.firstName,
           lastName: req.body.lastName,
-          role: req.body.role
+          role: req.body.role,
+          honorific: req.body.honorific
         };
 
         return db.User.create(newUser).then(() => {
