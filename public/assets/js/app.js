@@ -2,6 +2,7 @@ $('#add-user').on('click', function (event) {
   event.preventDefault();
 
   const newAccount = {
+    honorific: $('#honorific').val(),
     firstName: $('#inputFirst').val().trim(),
     lastName: $('#inputLast').val().trim(),
     email: $('#inputEmail').val().trim(),

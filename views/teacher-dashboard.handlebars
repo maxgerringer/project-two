@@ -3,7 +3,7 @@
 <div id="main-container" class="container">
   {{#if isloggedin}}
   <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead"> {{user.firstName}}'s Dashboard </p> 
+    <p class="lead"> {{user.honorific}} {{user.lastName}}'s Teacher Dashboard </p> 
     <div>
       
     <div class="content">
@@ -28,7 +28,7 @@
     <div class="tab-content">
      <!-- Tab 1--> 
       <div id="assignmentsDiv" class="tab-pane active">
-        
+        {{> tabs/assignments}}
       </div>
       <!-- Tab 2--> 
       <div id="disscussionDiv" class="tab-pane">    
@@ -36,7 +36,7 @@
       </div>
       <!-- Tab 3--> 
       <div id="teacherTalkDiv" class="tab-pane">
-        
+        {{> tabs/class-roster}}
       </div>
        <!-- Tab 4--> 
       <div id="resourcesDiv" class="tab-pane">
