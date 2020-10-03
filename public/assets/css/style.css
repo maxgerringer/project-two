@@ -9,6 +9,7 @@ body {
 
 .jumbotron {
   background: rgba(0,0,0,0);
+  height: auto;
 }
 
 .nav {
@@ -55,14 +56,14 @@ label {
  height: 65px;
 }
 
-.container {
+.dashboard-container {
   padding-bottom: 2%;
-  margin-top: 10%;
+  margin-top: 7%;
   background: rgba(86, 101, 115,.6);
-  height:100%;
   border-radius: .25rem;
   margin-bottom: 2%;
   width: 80%;
+  height: auto;
 }
 
 [data-useremail="true"] {
@@ -95,13 +96,6 @@ hr {
   color: #444;
 }
 /*----------------------*/
- 
-.content{
-  width: 450px;
-  height: auto;
-  margin: 0 auto;
-  padding: 10px;
-}
 
 .nav-pills{
   width: 100%;
@@ -111,6 +105,7 @@ hr {
 .nav-item{
   width: 25%;
 }
+
 .nav-pills .nav-link{
   font-weight: bold;
   padding-top: 13px;
@@ -120,13 +115,15 @@ hr {
   border-radius: 30px;
   height: 100px;
 }
+
 .nav-pills .nav-link.active{
   background: #fff;
   color: #000;
 }
+
 .tab-content{
   position: absolute;
-  width: 450px;
+  width: 100%;
   height: auto;
   margin-top: -50px;
   background: #fff;
