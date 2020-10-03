@@ -3,7 +3,7 @@
 <div id="main-container" class="container">
   {{#if isloggedin}}
   <div class="jumbotron text-center header-wrap" align="center">
-    <p class="lead"> {{user.firstName}}'s Dashboard </p> 
+    <p class="lead"> {{user.lastName}}'s Teacher Dashboard </p> 
     <div>
       
     <div class="content">
@@ -16,7 +16,7 @@
         <a class="nav-link" data-toggle="pill" href="#disscussionDiv">Discussion</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#teacherTalkDiv">TeacherTalk</a>
+        <a class="nav-link" data-toggle="pill" href="#teacherTalkDiv">Class Roster</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="pill" href="#resourcesDiv">Resources</a>
@@ -36,7 +36,7 @@
       </div>
       <!-- Tab 3--> 
       <div id="teacherTalkDiv" class="tab-pane">
-        {{> tabs/teach-talk}}
+        {{> tabs/class-roster}}
       </div>
        <!-- Tab 4--> 
       <div id="resourcesDiv" class="tab-pane">
