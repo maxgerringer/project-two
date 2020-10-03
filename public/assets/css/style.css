@@ -20,6 +20,23 @@ body {
   font-family: 'Oswald', sans-serif;
 }
 
+.container {
+  padding-bottom: 2%;
+  margin-top: 10%;
+  background: rgba(86, 101, 115,.6);
+  height:100%;
+  border-radius: .25rem;
+  margin-bottom: 2%;
+  width: 80%;
+}
+
+.content{
+  width: 450px;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 /*---Modal---*/
 .modal {
   color: black;
