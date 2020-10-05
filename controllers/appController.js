@@ -1,5 +1,11 @@
 module.exports = function (db) {
   return {
+    // Get all students
+    getStudents: function (req, res) {
+      db.User.findAll({ where: { role: 'student' } }).then(function (dbStudents) {
+        res.json(dbStudents);
+      });
+    },
     // Get all examples
     getExamples: function (req, res) {
       db.Example.findAll({ where: { UserId: req.session.passport.user.id } }).then(function (dbExamples) {
