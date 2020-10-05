@@ -140,7 +140,7 @@ hr {
 
 .tab-content{
   position: absolute;
-  width: 100%;
+  width: auto;
   height: auto;
   margin-top: -50px;
   background: #fff;
