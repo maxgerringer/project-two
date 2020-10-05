@@ -30,7 +30,19 @@ module.exports = (db) => {
     }
   });
 
-  // Load teacher dashboard page
+  router.get('/', (req, res) => {
+    if (req.isAuthenticated()) {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('dashboard', user);
+    } else {
+      res.render('dashboard');
+    }
+  });
+
+  // Load dashboard page
   router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated() && req.session.passport.user.role === 'teacher') {
       const user = {
@@ -38,27 +50,13 @@ module.exports = (db) => {
         isloggedin: req.isAuthenticated()
       };
       res.render('teacher-dashboard', user);
-    } else {
-      res.render('teacher-dashboard');
-    }
-  });
-
-  // Load student dashboard page
-  router.get('/dashboard', (req, res) => {
-    if (req.isAuthenticated() && req.session.passport.user.role === 'student') {
+    } else if (req.isAuthenticated() && req.session.passport.user.role === 'student') {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
-      res.render('student-dashboard', user);
-    } else {
-      res.render('dashboard');
-    }
-  });
-
-  // Load student dashboard page
-  router.get('/dashboard', (req, res) => {
-    if (req.isAuthenticated() && req.session.passport.user.role === 'parent') {
+      res.render('dashboard', user);
+    } else if (req.isAuthenticated() && req.session.passport.user.role === 'parent') {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
