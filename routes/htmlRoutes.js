@@ -31,7 +31,7 @@ module.exports = (db) => {
   });
 
   // Load teacher dashboard page
-  router.get('/', (req, res) => {
+  router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated() && req.session.passport.user.role === 'teacher') {
       const user = {
         user: req.session.passport.user,
@@ -39,7 +39,7 @@ module.exports = (db) => {
       };
       res.render('teacher-dashboard', user);
     } else {
-      res.render('dashboard');
+      res.render('teacher-dashboard');
     }
   });
 
@@ -69,21 +69,21 @@ module.exports = (db) => {
     }
   });
 
-  // Load example index page
-  router.get('/example', function (req, res) {
-    if (req.isAuthenticated()) {
-      db.Example.findAll({ where: { UserId: req.session.passport.user.id }, raw: true }).then(function (dbExamples) {
-        res.render('example', {
-          userInfo: req.session.passport.user,
-          isloggedin: req.isAuthenticated(),
-          msg: 'Welcome!',
-          examples: dbExamples
-        });
-      });
-    } else {
-      res.redirect('/');
-    }
-  });
+  // // Load example index page
+  // router.get('/roster', function (req, res) {
+  //   if (req.isAuthenticated()) {
+  //     db.User.findAll({ where: { role: 'student' }, raw: true }).then(function (dbStudents) {
+  //       res.render('teacher-dashboard', {
+  //         userInfo: req.session.passport.user,
+  //         isloggedin: req.isAuthenticated(),
+  //         msg: 'Welcome!',
+  //         roster: dbStudents
+  //       });
+  //     });
+  //   } else {
+  //     res.redirect('/');
+  //   }
+  // });
 
   // Load example page and pass in an example by id
   router.get('/example/:id', function (req, res) {
