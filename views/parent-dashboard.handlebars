@@ -1,19 +1,19 @@
 {{> nav/nav-block}}
 
-<div id="main-container" class="container">
+<div id="main-container" class="dashboard-container col-10 offset-1">
   {{#if isloggedin}}
   <div class="jumbotron text-center header-wrap" align="center">
     <p class="lead"> {{user.firstName}}'s Dashboard </p> 
     <div>
       
-    <div class="content">
+    <div class="col-10 offset-1">
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="pill" href="#assignmentsDiv">Assignments</a>
+        <a class="nav-link active" data-toggle="pill" href="#assignmentsDiv">My Child</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#disscussionDiv">Discussion</a>
+        <a class="nav-link" data-toggle="pill" href="#FAQDiv">FAQ</a>
       </li>
        <li class="nav-item">
         <a class="nav-link" data-toggle="pill" href="#teacherTalkDiv">TeacherTalk</a>
@@ -25,22 +25,22 @@
     </ul>
 
     <!-- Tab panes -->
-    <div class="tab-content">
+    <div class="dashboard-tab-content">
      <!-- Tab 1--> 
       <div id="assignmentsDiv" class="tab-pane active">
-        
+        {{> tabs/parent-tabs/my-child}} 
       </div>
       <!-- Tab 2--> 
-      <div id="disscussionDiv" class="tab-pane">    
-        {{> tabs/student-tabs/student-discussion}}  
+      <div id="FAQDiv" class="tab-pane">    
+        {{> tabs/parent-tabs/faq}}  
       </div>
       <!-- Tab 3--> 
       <div id="teacherTalkDiv" class="tab-pane">
-        
+         {{> tabs/parent-tabs/teach-talk}} 
       </div>
        <!-- Tab 4--> 
       <div id="resourcesDiv" class="tab-pane">
-        
+        {{> tabs/parent-tabs/resources}}
       </div>
 
       
