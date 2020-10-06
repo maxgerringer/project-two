@@ -15,9 +15,9 @@ module.exports = (passport, db) => {
 
   // App
   router.get('/roster', AppController.getStudents);
-  router.get('/examples', AppController.getExamples);
-  router.post('/examples', AppController.createExample);
-  router.delete('/examples/:id', AppController.deleteExample);
+  router.get('/assignments', AppController.getAssignments);
+  router.post('/assignments', AppController.createAssignment);
+  router.delete('/assignments/:id', AppController.deleteAssignment);
 
   return router;
 };
