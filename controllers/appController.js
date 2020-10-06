@@ -8,7 +8,7 @@ module.exports = function (db) {
     },
     // Get all examples
     getAssignments: function (req, res) {
-      db.Example.findAll().then(function (dbAssignments) {
+      db.Assignment.findAll().then(function (dbAssignments) {
         res.json(dbAssignments);
       });
     },
@@ -21,7 +21,7 @@ module.exports = function (db) {
     },
     // Delete an example by id
     deleteAssignment: function (req, res) {
-      db.Example.destroy({ where: { id: req.params.id } }).then(function (dbAssignment) {
+      db.Assignment.destroy({ where: { id: req.params.id } }).then(function (dbAssignment) {
         res.json(dbAssignment);
       });
     }
