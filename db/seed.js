@@ -22,6 +22,19 @@ module.exports = (db) => {
         text: 'Excited about class!',
         UserId: 2
       });
+    }).then(() => {
+      db.Assignment.create({
+        title: 'Welcome to Class',
+        description: 'Your first assignment',
+        dueDate: 'Monday October 12 2020',
+        UserId: 1
+      });
+    }).then(() => {
+      db.Resource.create({
+        topic: 'Search Engine',
+        url: 'http://www.google.com',
+        UserId: 1
+      });
     });
   });
 };
