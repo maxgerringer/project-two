@@ -43,10 +43,10 @@ $('#update-user').on('click', function (event) {
 
   // capture All changes
   const changeUser = {
-    firstName: $('#inputFirst').val().trim(),
-    lastName: $('#inputLast').val().trim(),
-    email: $('#inputEmail').val().trim(),
-    password: $('#inputPassword').val().trim()
+    firstName: $('#profileFirst').val().trim(),
+    lastName: $('#profileLast').val().trim(),
+    email: $('#profileEmail').val().trim(),
+    password: $('#profilePassword').val().trim()
   };
   $('#err-msg').empty('');
   // $('#change-user-modal').modal('show');
