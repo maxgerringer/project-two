@@ -69,7 +69,7 @@ const refreshAssignments = function () {
     const $assignments = data.map(function (assignment) {
       const $a = $('<a>')
         .text(assignment.title)
-        .attr('href', '/assignment/' + assignment.id);
+        .attr('href', '/assignments/' + assignment.id);
 
       const $li = $('<li>')
         .attr({
