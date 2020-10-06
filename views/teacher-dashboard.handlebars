@@ -1,22 +1,22 @@
 {{> nav/nav-block}}
 
-<div id="main-container" class="container">
+<div id="main-container" class="dashboard-container col-10 offset-1">
   {{#if isloggedin}}
   <div class="jumbotron text-center header-wrap" align="center">
     <p class="lead"> {{user.honorific}} {{user.lastName}}'s Teacher Dashboard </p> 
     <div>
       
-    <div class="content">
+    <div class="col-10 offset-1">
     <!-- Nav pills -->
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="pill" href="#assignmentsDiv">Assignments</a>
+        <a class="nav-link active" data-toggle="pill" href="#rosterDiv">Roser</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#disscussionDiv">Discussion</a>
+        <a class="nav-link" data-toggle="pill" href="#assignmentsDiv">Assignments</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#rosterDiv">Roster</a>
+        <a class="nav-link" data-toggle="pill" href="#teachTalkDiv">Teacher-Talk</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="pill" href="#resourcesDiv">Resources</a>
@@ -27,20 +27,20 @@
     <!-- Tab panes -->
     <div class="tab-content">
      <!-- Tab 1--> 
-      <div id="assignmentsDiv" class="tab-pane active">
-        {{> tabs/student-tabs/assignments}}
+      <div id="rosterDiv" class="tab-pane active">
+        {{> tabs/teacher-tabs/roster}}
       </div>
       <!-- Tab 2--> 
-      <div id="disscussionDiv" class="tab-pane">    
-        {{> tabs/student-tabs/student-discussion}}  
+      <div id="assignmentsDiv" class="tab-pane">    
+        {{> tabs/teacher-tabs/assignments}} 
       </div>
       <!-- Tab 3--> 
-      <div id="rosterDiv" class="tab-pane">
-        {{> tabs/teacher-tabs/class-roster}}
+      <div id="teachTalkDiv" class="tab-pane">
+        {{> tabs/teacher-tabs/teach-talk}}
       </div>
        <!-- Tab 4--> 
       <div id="resourcesDiv" class="tab-pane">
-        
+        {{> tabs/teacher-tabs/resources}}
       </div>
 
       
