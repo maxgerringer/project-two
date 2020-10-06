@@ -4,7 +4,7 @@
   {{#if isloggedin}}
   <div class="jumbotron text-center header-wrap" align="center">
     <p class="lead"> {{user.firstName}}'s Dashboard </p> 
-    <div>
+  
       
     <div class="col-10 offset-1">
     {{!-- <div class="content"> --}}
@@ -25,7 +25,7 @@
     </ul>
 
     <!-- Tab panes -->
-    <div class="col-12 tab-content">
+    <div class="tab-content dashboard-tab-content">
      <!-- Tab 1--> 
       <div id="assignmentsDiv" class="tab-pane active">
         {{> tabs/student-tabs/assignments}}
@@ -51,7 +51,7 @@
       {{/if}}
       <h5 id="login-err-msg"></h5>
     </div>
-  </div>
+ 
 
 
 
