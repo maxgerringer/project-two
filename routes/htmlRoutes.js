@@ -31,12 +31,24 @@ module.exports = (db) => {
   });
 
   router.get('/', (req, res) => {
-    if (req.isAuthenticated()) {
+    if (req.isAuthenticated() && req.session.passport.user.role === 'teacher') {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('teacher-dashboard', user);
+    } else if (req.isAuthenticated() && req.session.passport.user.role === 'student') {
       const user = {
         user: req.session.passport.user,
         isloggedin: req.isAuthenticated()
       };
       res.render('dashboard', user);
+    } else if (req.isAuthenticated() && req.session.passport.user.role === 'parent') {
+      const user = {
+        user: req.session.passport.user,
+        isloggedin: req.isAuthenticated()
+      };
+      res.render('parent-dashboard', user);
     } else {
       res.render('dashboard');
     }
