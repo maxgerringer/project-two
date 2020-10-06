@@ -1,18 +1,18 @@
 <div class="students">
     <div class="row justify-content-center">
-        <div class="col-lg-7" style="margin-top: 50px;">
+        <div class="col-lg-12" style="margin-top: 10px;">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{user.honorific}} {{user.lastName}}'s Class Roster</h5>
                      <ul id="roster" class="list-group">
                         {{#each students}}
                         <li data-id="{{this.id}}" class="list-group-item">
-                           <a href="example/{{this.id}}">{{this.text}}</a>
-                           <button class="btn btn-danger float-right delete">ｘ</button>
+                           <a href="roster/{{this.id}}">{{this.text}}</a>
+
                         </li>
                         {{/each}}
                      </ul>
-                     <button id="submit">Refresh</button>
+                     <button id="refresh" class="btn">Refresh</button>
                 </div>
             </div>
         </div>
