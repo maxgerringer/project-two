@@ -1,3 +1,4 @@
+
 // Get references to page elements
 const $assignmentList = $('#assignment-list');
 const $assingmentBtn = $('#submit-assignment');
@@ -41,22 +42,32 @@ const API = {
 const refreshAssignments = function () {
   API.getAssignments().then(function (data) {
     const $assignments = data.map(function (assignment) {
-      const $li = $('<li>')
-        .attr({
-          class: 'list-group-item',
-          'data-id': assignment.id
-        });
-
+      const $tr = $('<tr>');
+      const $tdTitle = $('<td>').text(assignment.title);
+      const $tdCat = $('<td>').text(assignment.description);
+      const $tdDue = $('<td>').text(moment(assignment.dueDate, 'YYYY-MM-DD').format('MM-DD-YYYY'));
+      const $tdSubmit = $('<td>');
       const $submitBtn = $('<button>')
         .addClass('btn btn-primary float-right submit')
         .text('Submit');
 
-      $li.append($submitBtn);
+      $tdSubmit.append($submitBtn);
 
-      return $li;
+      $tr.append($tdTitle, $tdCat, $tdDue, $tdSubmit);
+
+      return $tr;
     });
 
+    const $tr = $('<tr>');
+    const $thTitle = $('<th>').text('Title');
+    const $thCat = $('<th>').text('Category');
+    const $thDue = $('<th>').text('Due Date');
+    const $thSubmit = $('<th>');
+
+    $tr.append($thTitle, $thCat, $thDue, $thSubmit);
+
     $assignmentList.empty();
+    $assignmentList.append($tr);
     $assignmentList.append($assignments);
   });
 };
