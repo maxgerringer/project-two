@@ -1,7 +1,9 @@
 {{> nav/nav-block user=true register=false}}
 
-<div class="container">
-  <header align="center" class="header-wrap">
+
+<div class="container" id="profile-container">
+  
+  <header align="center" class="profile-header">
     <h3>Update your {{userInfo.role}} profile:</h3>
     <div class="userId">
       {{!-- <h3>Welcome, {{userInfo.firstName}}</h3> --}}
@@ -10,7 +12,7 @@
     <h3 id="update-err-msg"></h3>
   </header>
 
-  <form id="user-form">
+  <form id="user-form profile-form">
     <div class="form-row">
       <div class="form-group col-md-6">
         <label for="inputFirst">First Name</label>
@@ -74,3 +76,4 @@
     </div>
   </div>
 </div>
+
