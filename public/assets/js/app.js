@@ -119,6 +119,11 @@ $('#login-modal').on('click', function (event) {
   $('#user-info').modal('show');
 });
 
+$('#add-resource-btn').on('click', function (event) {
+  event.preventDefault();
+  $('#add-resource-modal').modal('show');
+});
+
 $('#go-home').on('click', function (event) {
   event.preventDefault();
   window.location.href = '/';
