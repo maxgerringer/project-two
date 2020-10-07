@@ -215,7 +215,7 @@ hr {
   padding-top: 20px;
 }
 
-#add-resource-container, #add-assignment-container {
+.dashboard-modal-container {
   font-family: 'Eczar', serif;
   width: 55%;
   height: auto;
@@ -228,14 +228,11 @@ hr {
   padding: 2%;
 }
 
-#add-assignment-modal, #add-resource-modal {
+.dashboard-modal {
   top: 30%;
   bottom: auto;
 }
 
-/* #add-resource-btn, #add-assignment-btn {
-  color:rgb(255, 255, 255) !important;
-  background:#3e6977ff;
-  border: 2px solid #b6881bff;
-  border-radius: 15px;
-} */
+#add-resource-btn, #add-assignment-btn, .btn {
+  font-family: 'Eczar', serif;
+}
