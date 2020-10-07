@@ -1,0 +1,30 @@
+<div class="modal" id="add-resource-modal" tabindex="-1">
+  <div class="content" id="add-resource-container">
+    <h1>Add A New Resource</h1>
+     <div id="add-assignmentDiv" class="text-left">
+        <form id="addResourceForm" name="addResourceForm" enctype="multipart/form-data" method="post">
+          <div class="form-group">
+            <label for="inputResourceName">Resource Name</label>
+            <input type="text" class="form-control is-valid" id="resourceName" placeholder="Example: Quizlet-Adaptation Flashcards">
+          </div>
+          <div class="form-group">
+            <label for="resourceCategory">Category</label>
+            <select name="category" class="form-control is-valid" id="resourceCategory" placeholder="Category">
+              <option value="math">Math</option>
+              <option value="science">Science</option>
+              <option value="socialStudies">Social Studies</option>
+              <option value="ela">ELA</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputResourceLink">Resource Link</label>
+            <input type="text" class="form-control is-valid" id="resourceLink" placeholder="www.quizlet.com">
+          </div>
+          <button id="addResourceBtn" type="submit" class="btn btn-secondary">Add Resource</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+  
+  </div>
+</div>
+  

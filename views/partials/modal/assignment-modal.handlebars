@@ -1,0 +1,29 @@
+<div class="modal" id="add-assignment-modal" tabindex="-1">
+  <div class="content" id="add-assignment-container">
+    <h1>Add A New Assignment</h1>
+    <div id="add-assignmentDiv" class="text-left">
+        <form id="addAssignmentForm" name="addAssignmentForm" enctype="multipart/form-data" method="post">
+          <div class="form-group">
+            <label for="inputAssignmentName">Assignment Name</label>
+            <input type="text" class="form-control is-valid" id="assignmentName" placeholder="Example: Fractions Worksheet 1.5">
+          </div>
+          <div class="form-group">
+            <label for="assignmentCategory">Category</label>
+            <select name="category" class="form-control is-valid" id="assignmentCategory" placeholder="Category">
+              <option value="math">Math</option>
+              <option value="science">Science</option>
+              <option value="socialStudies">Social Studies</option>
+              <option value="ela">ELA</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input id="myFile" name="myFile" type="file">
+          </div>
+          <button id="login" type="submit" class="btn btn-secondary">Upload</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+  
+  </div>
+</div>
+  
