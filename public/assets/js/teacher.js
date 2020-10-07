@@ -2,9 +2,10 @@
 const $refreshBtn = $('#refresh');
 const $roster = $('#roster');
 const $assignmentList = $('#assignment-list');
-const $assignmentTitle = $('#assignement-title');
+const $assignmentTitle = $('#assignment-title');
 const $assignmentDescrip = $('#assignment-descrip');
 const $assignmentDue = $('#due-date');
+const $assignDetail = $('#assignment-detail-id');
 const $assingmentBtn = $('#add-assignment');
 const $resourceList = $('#resource-list');
 
@@ -23,19 +24,25 @@ const API = {
       type: 'GET'
     });
   },
+  getAssignmentById: function (id) {
+    return $.ajax({
+      url: 'api/assignments/' + id,
+      type: 'GET'
+    });
+  },
   addAssignment: function (assignment) {
     return $.ajax({
       headers: {
         'Content-Type': 'application/json'
       },
       type: 'POST',
-      url: 'api/assigments',
+      url: 'api/assignments',
       data: JSON.stringify(assignment)
     });
   },
   deleteAssignment: function (id) {
     return $.ajax({
-      url: 'api/assignments' + id,
+      url: 'api/assignments/' + id,
       type: 'DELETE'
     });
   },
@@ -74,22 +81,21 @@ const refreshRoster = function () {
 const refreshAssignments = function () {
   API.getAssignments().then(function (data) {
     const $assignments = data.map(function (assignment) {
-      const $a = $('<a>')
-        .text(assignment.title)
-        .attr('href', '/assignments/' + assignment.id);
-
       const $li = $('<li>')
+        .text(assignment.title)
         .attr({
           class: 'list-group-item',
           'data-id': assignment.id
-        })
-        .append($a);
+        });
 
-      const $button = $('<button>')
+      const $delBtn = $('<button>')
         .addClass('btn btn-danger float-right delete')
         .text('X');
+      const $updateBtn = $('<button>')
+        .addClass('btn btn-secondary float-left update')
+        .text('Update');
 
-      $li.append($button);
+      $li.append($updateBtn, $delBtn);
 
       return $li;
     });
@@ -105,7 +111,8 @@ const addAssignment = function (event) {
   const assignment = {
     title: $assignmentTitle.val().trim(),
     description: $assignmentDescrip.val().trim(),
-    dueDate: $assignmentDue.val()
+    dueDate: $assignmentDue.val(),
+    UserId: userId
   };
 
   if (!(assignment.title && assignment.description)) {
@@ -119,6 +126,20 @@ const addAssignment = function (event) {
 
   $assignmentTitle.val('');
   $assignmentDescrip.val('');
+};
+
+const updateAssignment = function (event) {
+  event.preventDefault();
+
+  $('#detail-assignment-modal').modal('show');
+
+  const idToGet = $(this).parent().attr('data-id');
+
+  API.getAssignmentById(idToGet).then(function (data) {
+    console.log(data.title);
+
+    $assignDetail.text(data.title);
+  });
 };
 
 const deleteAssignment = function () {
@@ -166,6 +187,7 @@ const refreshResources = function () {
 // Add event listeners to the buttons
 $refreshBtn.on('click', refreshRoster);
 $assingmentBtn.on('click', addAssignment);
+$assignmentList.on('click', '.update', updateAssignment);
 $assignmentList.on('click', '.delete', deleteAssignment);
 
 refreshRoster();
