@@ -124,6 +124,11 @@ $('#add-resource-btn').on('click', function (event) {
   $('#add-resource-modal').modal('show');
 });
 
+$('#add-assignment-btn').on('click', function (event) {
+  event.preventDefault();
+  $('#add-assignment-modal').modal('show');
+});
+
 $('#go-home').on('click', function (event) {
   event.preventDefault();
   window.location.href = '/';

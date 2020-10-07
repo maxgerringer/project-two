@@ -52,7 +52,7 @@ label {
 
 .btn {
   color:white;
-  background:#cadde1;
+  background:#83b5bf;
   border: 1px solid white;
 }
 
@@ -151,9 +151,9 @@ hr {
   margin-left: 25px !important;
 }
 
-#nav-pills .nav-link.active{
-  background: #fff;
-  color: #000;
+#nav-pills, .nav-link.active{
+  background: #fff !important;
+  color: #000 !important;
 }
 
 .dashboard-tab-content{
@@ -215,7 +215,7 @@ hr {
   padding-top: 20px;
 }
 
-.add-resource-container {
+#add-resource-container, #add-assignment-container {
   font-family: 'Eczar', serif;
   width: 55%;
   height: auto;
@@ -224,12 +224,18 @@ hr {
   border-radius: 30px;
   z-index: 1000;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
-  align-self: center;
+  text-align: center;
+  padding: 2%;
 }
 
-#add-resource-btn {
+#add-assignment-modal, #add-resource-modal {
+  top: 30%;
+  bottom: auto;
+}
+
+/* #add-resource-btn, #add-assignment-btn {
   color:rgb(255, 255, 255) !important;
   background:#3e6977ff;
   border: 2px solid #b6881bff;
   border-radius: 15px;
-}
+} */
