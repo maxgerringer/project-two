@@ -6,6 +6,7 @@ const $assignmentTitle = $('#assignement-title');
 const $assignmentDescrip = $('#assignment-descrip');
 const $assignmentDue = $('#due-date');
 const $assingmentBtn = $('#add-assignment');
+const $resourceList = $('#resource-list');
 
 // The API object contains methods for each kind of request we'll make
 
@@ -36,6 +37,12 @@ const API = {
     return $.ajax({
       url: 'api/assignments' + id,
       type: 'DELETE'
+    });
+  },
+  getResources: function () {
+    return $.ajax({
+      url: 'api/resources',
+      type: 'GET'
     });
   }
 };
@@ -122,6 +129,40 @@ const deleteAssignment = function () {
   });
 };
 
+const refreshResources = function () {
+  API.getResources().then(function (data) {
+    const $resources = data.map(resource => {
+      const $a = $('<a>')
+        .text(resource.title)
+        .attr('href', resource.url);
+
+      const $li = $('<li>')
+        .attr({
+          class: 'list-group-item',
+          'data-id': resource.id
+        })
+        .append($a);
+
+      const $button = $('<button>')
+        .addClass('btn btn-danger float-right delete')
+        .text('X');
+
+      $li.append($button);
+
+      return $li;
+    });
+
+    $resourceList.empty();
+    $resourceList.append($resources);
+  });
+};
+
+const addResource = function (event) {
+  event.preventDefault();
+
+  const resource
+}
+
 // Add event listeners to the buttons
 $refreshBtn.on('click', refreshRoster);
 $assingmentBtn.on('click', addAssignment);
@@ -129,3 +170,4 @@ $assignmentList.on('click', '.delete', deleteAssignment);
 
 refreshRoster();
 refreshAssignments();
+refreshResources();
