@@ -157,11 +157,11 @@ const refreshResources = function () {
   });
 };
 
-const addResource = function (event) {
-  event.preventDefault();
+// const addResource = function (event) {
+//   event.preventDefault();
 
-  const resource
-}
+//   const resource
+// };
 
 // Add event listeners to the buttons
 $refreshBtn.on('click', refreshRoster);
