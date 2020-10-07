@@ -24,6 +24,11 @@ module.exports = function (db) {
       db.Assignment.destroy({ where: { id: req.params.id } }).then(function (dbAssignment) {
         res.json(dbAssignment);
       });
+    },
+    getResources: function (req, res) {
+      db.Resource.findAll().then(function (dbResources) {
+        res.json(dbResources);
+      });
     }
   };
 };
