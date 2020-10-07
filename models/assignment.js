@@ -2,7 +2,8 @@ module.exports = function (sequelize, DataTypes) {
   const Assignment = sequelize.define('Assignment', {
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
-    dueDate: DataTypes.STRING
+    dueDate: DataTypes.STRING,
+    submission: DataTypes.STRING
   });
 
   Assignment.associate = function (models) {
