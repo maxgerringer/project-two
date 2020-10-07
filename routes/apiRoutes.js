@@ -13,11 +13,12 @@ module.exports = (passport, db) => {
   router.delete('/user/:id', ensureAuthenticated, AuthController.deleteUser);
   router.post('/user/confirm', AuthController.confirmAuth);
 
-  // App
+  // Teacher App
   router.get('/roster', AppController.getStudents);
   router.get('/assignments', AppController.getAssignments);
   router.post('/assignments', AppController.createAssignment);
   router.delete('/assignments/:id', AppController.deleteAssignment);
+  router.get('/resources', AppController.getResources);
 
   return router;
 };
