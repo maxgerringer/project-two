@@ -214,3 +214,22 @@ hr {
 .profile-header {
   padding-top: 20px;
 }
+
+.add-resource-container {
+  font-family: 'Eczar', serif;
+  width: 55%;
+  height: auto;
+  background: #fff;
+  color: #000;
+  border-radius: 30px;
+  z-index: 1000;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.4);
+  align-self: center;
+}
+
+#add-resource-btn {
+  color:rgb(255, 255, 255) !important;
+  background:#3e6977ff;
+  border: 2px solid #b6881bff;
+  border-radius: 15px;
+}
