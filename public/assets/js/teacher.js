@@ -131,7 +131,7 @@ const addAssignment = function (event) {
 const updateAssignment = function (event) {
   event.preventDefault();
 
-  $('#detail-assignment-modal').modal('show');
+  $('#update-assignment-modal').modal('show');
 
   const idToGet = $(this).parent().attr('data-id');
 
