@@ -26,7 +26,7 @@ module.exports = (db) => {
       db.Assignment.create({
         title: 'Welcome to Class',
         description: 'Your first assignment',
-        dueDate: 'Monday October 12 2020',
+        dueDate: '2020-10-12',
         UserId: 1
       });
     }).then(() => {

@@ -1,9 +1,8 @@
+
 // Get references to page elements
 const $assignmentList = $('#assignment-list');
-const $assignmentTitle = $('#assignement-title');
-const $assignmentDescrip = $('#assignment-descrip');
-const $assignmentDue = $('#due-date');
 const $assingmentBtn = $('#submit-assignment');
+const $assignDetail = $('#assignment-detail-id');
 
 // The API object contains methods for each kind of request we'll make
 
@@ -20,13 +19,19 @@ const API = {
       type: 'GET'
     });
   },
+  getAssignmentById: function (id) {
+    return $.ajax({
+      url: 'api/assignments/' + id,
+      type: 'GET'
+    });
+  },
   submitAssignment: function (assignment) {
     return $.ajax({
       headers: {
         'Content-Type': 'application/json'
       },
       type: 'POST',
-      url: 'api/assigments',
+      url: 'api/homeworks',
       data: JSON.stringify(assignment)
     });
   }
@@ -37,48 +42,51 @@ const API = {
 const refreshAssignments = function () {
   API.getAssignments().then(function (data) {
     const $assignments = data.map(function (assignment) {
-      const $a = $('<a>')
-        .text(assignment.title)
-        .attr('href', '/assignments/' + assignment.id);
+      const $tr = $('<tr>');
+      const $tdTitle = $('<td>').text(assignment.title);
+      const $tdCat = $('<td>').text(assignment.description);
+      const $tdDue = $('<td>').text(moment(assignment.dueDate, 'YYYY-MM-DD').format('MM-DD-YYYY'));
+      const $tdSubmit = $('<td>');
+      const $submitBtn = $('<button>')
+        .addClass('btn btn-primary float-right submit')
+        .text('Submit');
 
-      const $li = $('<li>')
-        .attr({
-          class: 'list-group-item',
-          'data-id': assignment.id
-        })
-        .append($a);
+      $tdSubmit.append($submitBtn);
 
-      return $li;
+      $tr.append($tdTitle, $tdCat, $tdDue, $tdSubmit);
+
+      return $tr;
     });
 
+    const $tr = $('<tr>');
+    const $thTitle = $('<th>').text('Title');
+    const $thCat = $('<th>').text('Category');
+    const $thDue = $('<th>').text('Due Date');
+    const $thSubmit = $('<th>');
+
+    $tr.append($thTitle, $thCat, $thDue, $thSubmit);
+
     $assignmentList.empty();
+    $assignmentList.append($tr);
     $assignmentList.append($assignments);
   });
 };
 
-const addAssignment = function (event) {
+const submitAssignment = function (event) {
   event.preventDefault();
 
-  const assignment = {
-    title: $assignmentTitle.val().trim(),
-    description: $assignmentDescrip.val().trim(),
-    dueDate: $assignmentDue.val()
-  };
+  $('#detail-assignment-modal').modal('show');
 
-  if (!(assignment.title && assignment.description)) {
-    alert('Enter a Title and Description');
-    return;
-  }
+  const idToGet = $(this).parent().attr('data-id');
 
-  API.addAssignment(assignment).then(function () {
-    refreshAssignments();
+  API.getAssignmentById(idToGet).then(function (data) {
+    console.log(data.title);
+
+    $assignDetail.text(data.title);
   });
-
-  $assignmentTitle.val('');
-  $assignmentDescrip.val('');
 };
 
 // Add event listeners to the buttons
-$assingmentBtn.on('click', addAssignment);
+$assingmentBtn.on('click', submitAssignment);
 
 refreshAssignments();

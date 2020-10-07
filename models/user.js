@@ -65,6 +65,12 @@ module.exports = function (sequelize, DataTypes) {
     User.hasMany(models.Resource, {
       onDelete: 'cascade'
     });
+    User.hasMany(models.Comment, {
+      onDelete: 'cascade'
+    });
+    User.hasMany(models.Message, {
+      onDelete: 'cascade'
+    });
   };
 
   // This will check if an unhashed password can be compared to the hashed password stored in our database

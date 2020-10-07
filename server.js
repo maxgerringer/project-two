@@ -6,6 +6,7 @@ const morgan = require('morgan');
 const passport = require('passport');
 const moment = require('moment');
 const helmet = require('helmet');
+const flash = require('connect-flash');
 const PORT = process.env.PORT || 3333;
 const app = express();
 const db = require('./models');
@@ -21,6 +22,7 @@ if (app.get('env') !== 'test') {
 }
 
 app.use(express.static('public'));
+app.use(flash());
 
 require('./config/passport')(db, app, passport); // pass passport for configuration
 
