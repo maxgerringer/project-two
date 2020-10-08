@@ -27,7 +27,8 @@ module.exports = function (db) {
       db.Assignment.update({
         title: req.body.title,
         description: req.body.description,
-        dueDate: req.body.dueDate
+        dueDate: req.body.dueDate,
+        submission: req.body.submission
       }, {
         where: { id: req.params.id }
       }).then(result => {
