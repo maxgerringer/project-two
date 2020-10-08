@@ -5,7 +5,7 @@ const $assignmentList = $('#assignment-list');
 const $assignmentTitle = $('#assignment-title');
 const $assignmentDescrip = $('#assignment-descrip');
 const $assignmentDue = $('#due-date');
-const $assignDetail = $('#assignment-detail-id');
+const $assignUpdate = $('#update-assignment-title');
 const $assingmentBtn = $('#add-assignment');
 const $resourceList = $('#resource-list');
 
@@ -130,15 +130,19 @@ const addAssignment = function (event) {
 
 const updateAssignment = function (event) {
   event.preventDefault();
+  $('#update-status').empty();
 
   $('#update-assignment-modal').modal('show');
 
   const idToGet = $(this).parent().attr('data-id');
 
   API.getAssignmentById(idToGet).then(function (data) {
-    console.log(data.title);
+    console.log(data.description);
 
-    $assignDetail.text(data.title);
+    $assignUpdate.val(data.title);
+    $('#update-assignment-descrip').val(data.description);
+    $('#update-due-date').val(data.dueDate);
+    $('#update-assignment').attr('data-id', idToGet);
   });
 };
 
@@ -189,6 +193,31 @@ $refreshBtn.on('click', refreshRoster);
 $assingmentBtn.on('click', addAssignment);
 $assignmentList.on('click', '.update', updateAssignment);
 $assignmentList.on('click', '.delete', deleteAssignment);
+$('#update-assignment').on('click', function (event) {
+  event.preventDefault();
+
+  const id = $(this).data('id');
+
+  // capture All changes
+  const update = {
+    title: $('#update-assignment-title').val().trim(),
+    description: $('#update-assignment-descrip').val().trim(),
+    dueDate: $('#update-due-date').val().trim()
+  };
+  $('#err-msg').empty('');
+  // $('#change-user-modal').modal('show');
+  console.log(update);
+
+  $.ajax({
+    type: 'PUT',
+    url: '/api/assignments/' + id,
+    data: update
+  }).then((result) => {
+    console.log('Updated assignment:', result);
+    refreshAssignments();
+    $('#update-status').text('Updated!');
+  });
+});
 
 refreshRoster();
 refreshAssignments();

@@ -1,15 +1,15 @@
 <div class="modal dashboard-modal" id="update-assignment-modal" tabindex="-1">
   <div class="content dashboard-modal-container" id="update-assignment-container">
     <h1>Update Assignment Details</h1>
-    <div id="add-assignmentDiv" class="text-left">
-        <form id="addAssignmentForm" name="addAssignmentForm" enctype="multipart/form-data" method="post">
+    <div id="update-assignmentDiv" class="text-left">
+        <form id="update-assign-form" name="addAssignmentForm" enctype="multipart/form-data" method="post">
           <div class="form-group">
             <label for="inputAssignmentName">Assignment Name</label>
-            <input type="text" class="form-control is-valid" id="assignment-title" placeholder="Example: Fractions Worksheet 1.5">
+            <input type="text" class="form-control is-valid" id="update-assignment-title" placeholder="Example: Fractions Worksheet 1.5">
           </div>
           <div class="form-group">
             <label for="assignmentCategory">Category</label>
-            <select name="category" class="form-control is-valid" id="assignment-descrip" placeholder="Category">
+            <select name="category" class="form-control is-valid" id="update-assignment-descrip" placeholder="Category">
               <option value="Math">Math</option>
               <option value="Science">Science</option>
               <option value="Social Studies">Social Studies</option>
@@ -18,9 +18,10 @@
           </div>
           <div class="form-group">
             <label for="dueDate">Due Date</label>
-            <input id="due-date" name="dueDate" type="date">
+            <input id="update-due-date" name="dueDate" type="date">
+            <h3 id="update-status" class="float-right"></h3>
           </div>
-          <button id="add-assignment" type="submit" class="btn btn-secondary">Add</button>
+          <button id="update-assignment" type="submit" class="btn btn-secondary">Update</button>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </form>
       </div>

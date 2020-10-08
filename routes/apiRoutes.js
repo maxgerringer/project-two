@@ -18,8 +18,13 @@ module.exports = (passport, db) => {
   router.get('/assignments', AppController.getAssignments);
   router.post('/assignments', AppController.createAssignment);
   router.get('/assignments/:id', AppController.getAssignmentById);
+  router.put('/assignments/:id', AppController.updateAssignment);
   router.delete('/assignments/:id', AppController.deleteAssignment);
   router.get('/resources', AppController.getResources);
+  router.post('/resources', AppController.createResource);
+  router.get('/resource/:id', AppController.getResourceById);
+  router.put('resource/:id', AppController.updateResource);
+  router.delete('/resource/:id', AppController.deleteResource);
 
   return router;
 };

@@ -1,0 +1,31 @@
+<div class="modal dashboard-modal" id="update-resource-modal" tabindex="-1">
+  <div class="content dashboard-modal-container" id="update-resource-container">
+    <h1>Update Assignment Details</h1>
+    <div id="update-resourceDiv" class="text-left">
+        <form id="update-resource-form" name="addResourceForm" enctype="multipart/form-data" method="post">
+          <div class="form-group">
+            <label for="inputResourceName">Resource Name</label>
+            <input type="text" class="form-control is-valid" id="update-resource-title" placeholder="Example: Fractions Worksheet 1.5">
+          </div>
+          <div class="form-group">
+            <label for="assignmentCategory">Category</label>
+            <select name="category" class="form-control is-valid" id="update-resource-descrip" placeholder="Category">
+              <option value="Math">Math</option>
+              <option value="Science">Science</option>
+              <option value="Social Studies">Social Studies</option>
+              <option value="ELA">ELA</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="inputResourceLink">Resource Link</label>
+            <input type="text" class="form-control is-valid" id="update-resourceLink" placeholder="www.quizlet.com">
+            <h3 id="update-resource-status" class="float-right"></h3>
+          </div>
+          <button id="update-resource" type="submit" class="btn btn-secondary">Update</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </form>
+      </div>
+  
+  </div>
+</div>
+  
