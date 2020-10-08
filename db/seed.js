@@ -33,6 +33,7 @@ module.exports = (db) => {
       db.Resource.create({
         topic: 'Search Engine',
         url: 'http://www.google.com',
+        category: 'ELA',
         UserId: 1
       });
     });

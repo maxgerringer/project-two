@@ -22,9 +22,9 @@ module.exports = (passport, db) => {
   router.delete('/assignments/:id', AppController.deleteAssignment);
   router.get('/resources', AppController.getResources);
   router.post('/resources', AppController.createResource);
-  router.get('/resource/:id', AppController.getResourceById);
-  router.put('resource/:id', AppController.updateResource);
-  router.delete('/resource/:id', AppController.deleteResource);
+  router.get('/resources/:id', AppController.getResourceById);
+  router.put('/resources/:id', AppController.updateResource);
+  router.delete('/resources/:id', AppController.deleteResource);
 
   return router;
 };

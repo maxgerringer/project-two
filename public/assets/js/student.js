@@ -48,7 +48,7 @@ const refreshAssignments = function () {
       const $tdDue = $('<td>').text(moment(assignment.dueDate, 'YYYY-MM-DD').format('MM-DD-YYYY'));
       const $tdSubmit = $('<td>');
       const $submitBtn = $('<button>')
-        .addClass('btn btn-primary float-right submit')
+        .addClass('btn btn-primary submit')
         .text('Submit');
 
       $tdSubmit.append($submitBtn);

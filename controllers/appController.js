@@ -46,18 +46,18 @@ module.exports = function (db) {
       });
     },
     getResourceById: function (req, res) {
-      db.Assignment.findOne({ where: { id: req.params.id } }).then(function (dbResources) {
+      db.Resource.findOne({ where: { id: req.params.id } }).then(function (dbResources) {
         res.json(dbResources);
       });
     },
     createResource: function (req, res) {
       console.log(req.body);
-      db.Assignment.create(req.body).then(function (dbResources) {
+      db.Resource.create(req.body).then(function (dbResources) {
         res.json(dbResources);
       });
     },
     updateResource: function (req, res) {
-      db.Assignment.update({
+      db.Resource.update({
         topic: req.body.topic,
         url: req.body.url,
         category: req.body.category
@@ -68,9 +68,9 @@ module.exports = function (db) {
       });
     },
     deleteResource: function (req, res) {
-      db.Assignment.destroy({ where: { id: req.params.id } }).then(function (dbResources) {
+      db.Resource.destroy({ where: { id: req.params.id } }).then(function (dbResources) {
         res.json(dbResources);
       });
-    },
+    }
   };
 };

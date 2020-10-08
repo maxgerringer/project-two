@@ -178,8 +178,9 @@ const deleteAssignment = function () {
 
 const refreshResources = function () {
   API.getResources().then(function (data) {
-    const $resources = data.map(resource => {
+    const $resources = data.map(function (resource) {
       const $li = $('<li>')
+        .text(resource.topic)
         .attr({
           class: 'list-group-item',
           'data-id': resource.id
@@ -189,7 +190,7 @@ const refreshResources = function () {
         .addClass('btn btn-danger float-right delete')
         .text('X');
       const $updateBtn = $('<button>')
-        .addClass('btn btn-secondary float left update')
+        .addClass('btn btn-secondary float-left update')
         .text('Update');
 
       $li.append($updateBtn, $delBtn);
