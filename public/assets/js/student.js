@@ -1,7 +1,7 @@
 
 // Get references to page elements
 const $assignmentList = $('#assignment-list');
-const $assingmentBtn = $('#submit-assignment');
+
 const $assignDetail = $('#assignment-detail-id');
 
 // The API object contains methods for each kind of request we'll make
@@ -47,11 +47,17 @@ const refreshAssignments = function () {
       const $tdCat = $('<td>').text(assignment.description);
       const $tdDue = $('<td>').text(moment(assignment.dueDate, 'YYYY-MM-DD').format('MM-DD-YYYY'));
       const $tdSubmit = $('<td>');
+      const $isSubmitted = $('<p>').text('✅');
       const $submitBtn = $('<button>')
+        .attr('data-id', assignment.id)
         .addClass('btn btn-primary submit')
         .text('Submit');
 
-      $tdSubmit.append($submitBtn);
+      if (assignment.submission !== null) {
+        $tdSubmit.append($isSubmitted, $submitBtn);
+      } else {
+        $tdSubmit.append($submitBtn);
+      }
 
       $tr.append($tdTitle, $tdCat, $tdDue, $tdSubmit);
 
@@ -77,7 +83,7 @@ const submitAssignment = function (event) {
 
   $('#detail-assignment-modal').modal('show');
 
-  const idToGet = $(this).parent().attr('data-id');
+  const idToGet = $(this).attr('data-id');
 
   API.getAssignmentById(idToGet).then(function (data) {
     console.log(data.title);
@@ -87,6 +93,6 @@ const submitAssignment = function (event) {
 };
 
 // Add event listeners to the buttons
-$assingmentBtn.on('click', submitAssignment);
+$assignmentList.on('click', '.submit', submitAssignment);
 
 refreshAssignments();
