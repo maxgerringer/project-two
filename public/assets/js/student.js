@@ -31,16 +31,6 @@ const API = {
       type: 'GET'
     });
   },
-  submitAssignment: function (assignment) {
-    return $.ajax({
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      type: 'POST',
-      url: 'api/homeworks',
-      data: JSON.stringify(assignment)
-    });
-  },
   getResources: function () {
     return $.ajax({
       url: 'api/resources',
@@ -129,7 +119,7 @@ const submitAssignment = function (event) {
 
 const refreshResources = function () {
   API.getResources().then(function (data) {
-    const $assignments = data.map(function (resource) {
+    const $resources = data.map(function (resource) {
       const $tr = $('<tr>');
       const $a = $('<a>').text(resource.topic).attr('href', resource.url);
       const $tdTitle = $('<td>');
@@ -150,7 +140,7 @@ const refreshResources = function () {
 
     $resourceList.empty();
     $resourceList.append($tr);
-    $resourceList.append($assignments);
+    $resourceList.append($resources);
   });
 };
 
