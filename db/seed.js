@@ -18,8 +18,8 @@ module.exports = (db) => {
       honorific: 'Miss'
     }).then(() => {
       db.Discussion.create({
-        topic: 'First Message',
-        text: 'Excited about class!',
+        topic: 'First Journal Entry',
+        text: 'I am so Excited about class!',
         UserId: 2
       });
     }).then(() => {
