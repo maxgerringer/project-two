@@ -1,8 +1,14 @@
 
 // Get references to page elements
 const $assignmentList = $('#assignment-list');
+const $resourceList = $('#resource-list');
 
 const $assignDetail = $('#assignment-detail-id');
+
+const $exampleText = $('#example-text');
+const $exampleDescription = $('#example-description');
+const $submitBtn = $('#submit');
+const $exampleList = $('#example-list');
 
 // The API object contains methods for each kind of request we'll make
 
@@ -39,6 +45,28 @@ const API = {
     return $.ajax({
       url: 'api/resources',
       type: 'GET'
+    });
+  },
+  saveDiscussion: function (example) {
+    return $.ajax({
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      type: 'POST',
+      url: 'api/discussions',
+      data: JSON.stringify(example)
+    });
+  },
+  getDiscussion: function () {
+    return $.ajax({
+      url: 'api/discussions',
+      type: 'GET'
+    });
+  },
+  deleteDiscussion: function (id) {
+    return $.ajax({
+      url: 'api/discussions/' + id,
+      type: 'DELETE'
     });
   }
 };
@@ -120,9 +148,9 @@ const refreshResources = function () {
 
     $tr.append($thTitle, $thCat);
 
-    $assignmentList.empty();
-    $assignmentList.append($tr);
-    $assignmentList.append($assignments);
+    $resourceList.empty();
+    $resourceList.append($tr);
+    $resourceList.append($assignments);
   });
 };
 
@@ -150,4 +178,5 @@ $('#submit-assignment').on('click', function (event) {
   });
 });
 
+refreshAssignments();
 refreshResources();
