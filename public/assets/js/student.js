@@ -1,7 +1,7 @@
 
 // Get references to page elements
 const $assignmentList = $('#assignment-list');
-const $assingmentBtn = $('#submit-assignment');
+
 const $assignDetail = $('#assignment-detail-id');
 
 // The API object contains methods for each kind of request we'll make
@@ -34,6 +34,12 @@ const API = {
       url: 'api/homeworks',
       data: JSON.stringify(assignment)
     });
+  },
+  getResources: function () {
+    return $.ajax({
+      url: 'api/resources',
+      type: 'GET'
+    });
   }
 };
 
@@ -47,11 +53,17 @@ const refreshAssignments = function () {
       const $tdCat = $('<td>').text(assignment.description);
       const $tdDue = $('<td>').text(moment(assignment.dueDate, 'YYYY-MM-DD').format('MM-DD-YYYY'));
       const $tdSubmit = $('<td>');
+      const $isSubmitted = $('<p>').addClass('float-left').text('✅');
       const $submitBtn = $('<button>')
-        .addClass('btn btn-primary float-right submit')
+        .attr('data-id', assignment.id)
+        .addClass('btn btn-primary submit')
         .text('Submit');
 
-      $tdSubmit.append($submitBtn);
+      if (assignment.submission !== null) {
+        $tdSubmit.append($isSubmitted, $submitBtn);
+      } else {
+        $tdSubmit.append($submitBtn);
+      }
 
       $tr.append($tdTitle, $tdCat, $tdDue, $tdSubmit);
 
@@ -77,16 +89,65 @@ const submitAssignment = function (event) {
 
   $('#detail-assignment-modal').modal('show');
 
-  const idToGet = $(this).parent().attr('data-id');
+  const idToGet = $(this).attr('data-id');
 
   API.getAssignmentById(idToGet).then(function (data) {
     console.log(data.title);
 
     $assignDetail.text(data.title);
+    $('#submit-assignment').attr('data-id', idToGet);
+  });
+};
+
+const refreshResources = function () {
+  API.getResources().then(function (data) {
+    const $assignments = data.map(function (resource) {
+      const $tr = $('<tr>');
+      const $a = $('<a>').text(resource.topic).attr('href', resource.url);
+      const $tdTitle = $('<td>');
+      const $tdCat = $('<td>').text(resource.category);
+
+      $tdTitle.append($a);
+
+      $tr.append($tdTitle, $tdCat);
+
+      return $tr;
+    });
+
+    const $tr = $('<tr>');
+    const $thTitle = $('<th>').text('Link');
+    const $thCat = $('<th>').text('Category');
+
+    $tr.append($thTitle, $thCat);
+
+    $assignmentList.empty();
+    $assignmentList.append($tr);
+    $assignmentList.append($assignments);
   });
 };
 
 // Add event listeners to the buttons
-$assingmentBtn.on('click', submitAssignment);
+$assignmentList.on('click', '.submit', submitAssignment);
+$('#submit-assignment').on('click', function (event) {
+  event.preventDefault();
 
-refreshAssignments();
+  const id = $(this).data('id');
+
+  const update = {
+    submission: $('#assignment-link').val().trim()
+  };
+  $('#err-msg').empty('');
+  console.log(update);
+
+  $.ajax({
+    type: 'PUT',
+    url: '/api/assignments/' + id,
+    data: update
+  }).then((result) => {
+    console.log('Updated resource:', result);
+    refreshAssignments();
+    $('#detail-assignment-modal').modal('hide');
+  });
+});
+
+refreshResources();

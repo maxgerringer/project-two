@@ -7,6 +7,29 @@ body {
   background-color: #3E6977;
 }
 
+table, th, td {
+  border: 1px solid #3E6977;
+  border-collapse: collapse;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+td {
+  width: 25%;
+}
+
+th {
+  background-color: #3E6977;
+  color: #fff;
+}
+
+td {
+  text-align: center;
+}
+
 .jumbotron {
   background: rgba(0,0,0,0);
   height: auto;
