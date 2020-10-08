@@ -5,10 +5,10 @@ const $resourceList = $('#resource-list');
 
 const $assignDetail = $('#assignment-detail-id');
 
-const $exampleText = $('#example-text');
-const $exampleDescription = $('#example-description');
-const $submitBtn = $('#submit');
-const $exampleList = $('#example-list');
+// const $exampleText = $('#example-text');
+// const $exampleDescription = $('#example-description');
+// const $submitBtn = $('#submit');
+// const $exampleList = $('#example-list');
 
 // The API object contains methods for each kind of request we'll make
 
